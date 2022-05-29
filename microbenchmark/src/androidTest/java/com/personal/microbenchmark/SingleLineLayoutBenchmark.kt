@@ -5,13 +5,16 @@ import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
 import org.junit.Rule
 import org.junit.Test
+import org.junit.runner.OrderWith
 import org.junit.runner.RunWith
+import org.junit.runner.manipulation.Alphanumeric
 
 /**
  * 单行不同布局实现，验证简单布局效果和每个TextView添加耗时
  */
 @LargeTest
 @RunWith(AndroidJUnit4::class)
+@OrderWith(Alphanumeric::class)
 class SingleLineLayoutBenchmark {
     @get:Rule
     val benchmarkRule = BenchmarkRule()
