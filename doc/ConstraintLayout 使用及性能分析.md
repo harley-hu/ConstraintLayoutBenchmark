@@ -328,3 +328,4 @@ object LayoutPerformanceUtils {
 [Android 布局优化是真的难，从入门到放弃……](https://zhuanlan.zhihu.com/p/368555655)
 
 [ConstraintLayout 使用及性能分析(统计数据)](https://doc.weixin.qq.com/sheet/e3_AP4AsAb6ACcmPUW9dDPS8q0Gi4qJe?scode=AJEAIQdfAAoEBwO1qIAP4AsAb6ACc&tab=BB08J2)
+[使用 ConstraintLayout 构建自适应界面](https://developer.android.google.cn/training/constraint-layout?hl=zh-cn)
