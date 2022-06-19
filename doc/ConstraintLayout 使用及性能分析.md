@@ -85,7 +85,7 @@ object LayoutPerformanceUtils {
 
 场景图：
 
-![image-20220523001047019](ConstraintLayout 使用及性能分析.assets/image-20220523001047019.png)
+![image-20220523001047019](https://github.com/harley-hu/ConstraintLayoutBenchmark/blob/main/doc/ConstraintLayout%20%E4%BD%BF%E7%94%A8%E5%8F%8A%E6%80%A7%E8%83%BD%E5%88%86%E6%9E%90.assets/image-20220523001047019.png)
 
 实现：
 
