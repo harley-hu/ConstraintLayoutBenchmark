@@ -25,7 +25,11 @@ object LayoutPerformanceUtils {
      * 1. 相对于 inflate 而言，measure 和 layout 一般会被同时调用
      * 2. measure 和 layout 对于一些 View 而言，职责并没有特别限定，因此从一些系统代码中可以发现，measure 和 layout存在相互调用的情况
      */
-    fun analysisLayoutMeasureAndLayout(benchmarkRule: BenchmarkRule, layoutResId: Int) {
+    fun analysisLayoutMeasureAndLayout(
+        benchmarkRule: BenchmarkRule,
+        layoutResId: Int,
+        mode: Int = View.MeasureSpec.EXACTLY
+    ) {
         val context = InstrumentationRegistry.getInstrumentation().context
         val inflater = LayoutInflater.from(context)
 
@@ -34,11 +38,25 @@ object LayoutPerformanceUtils {
             val container = runWithTimingDisabled {
                 inflater.inflate(layoutResId, null)
             }
-            val widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(1080, View.MeasureSpec.EXACTLY)
-            val heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(1920, View.MeasureSpec.EXACTLY)
+            val widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(1080, mode)
+            val heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(1920, mode)
 
             container.measure(widthMeasureSpec, heightMeasureSpec)
             container.layout(0, 0, container.measuredWidth, container.measuredHeight)
+        }
+    }
+
+    fun analysisViewMeasureAndLayout(
+        benchmarkRule: BenchmarkRule,
+        view: View,
+        mode: Int = View.MeasureSpec.EXACTLY
+    ) {
+        benchmarkRule.measureRepeated {
+            val widthMeasureSpec = View.MeasureSpec.makeMeasureSpec(1080, mode)
+            val heightMeasureSpec = View.MeasureSpec.makeMeasureSpec(1920, mode)
+
+            view.measure(widthMeasureSpec, heightMeasureSpec)
+            view.layout(0, 0, view.measuredWidth, view.measuredHeight)
         }
     }
 

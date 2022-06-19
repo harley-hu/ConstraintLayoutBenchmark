@@ -1,5 +1,6 @@
 package com.personal.microbenchmark
 
+import android.view.View
 import androidx.benchmark.junit4.BenchmarkRule
 import androidx.test.ext.junit.runners.AndroidJUnit4
 import androidx.test.filters.LargeTest
@@ -24,7 +25,8 @@ class SingleLineLayoutBenchmark {
     fun linearLayout_at_most_measure() {
         LayoutPerformanceUtils.analysisLayoutMeasureAndLayout(
             benchmarkRule,
-            R.layout.single_line_linearlayout_at_most
+            R.layout.single_line_linearlayout_at_most,
+            View.MeasureSpec.AT_MOST
         )
     }
 
@@ -40,7 +42,8 @@ class SingleLineLayoutBenchmark {
     fun relativeLayout_at_most_measure() {
         LayoutPerformanceUtils.analysisLayoutMeasureAndLayout(
             benchmarkRule,
-            R.layout.single_line_relativelayout_at_most
+            R.layout.single_line_relativelayout_at_most,
+            View.MeasureSpec.AT_MOST
         )
     }
 
@@ -56,7 +59,8 @@ class SingleLineLayoutBenchmark {
     fun constraintLayout_at_most_measure() {
         LayoutPerformanceUtils.analysisLayoutMeasureAndLayout(
             benchmarkRule,
-            R.layout.single_line_constraintlayout_at_most
+            R.layout.single_line_constraintlayout_at_most,
+            View.MeasureSpec.AT_MOST
         )
     }
 
